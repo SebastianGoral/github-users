@@ -26,6 +26,10 @@ const Text = styled.div`
 const Title = styled.div`
   font-size: 22px;
   font-weight: bold;
+  overflow: hidden;
+  max-width: 350px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const Description = styled.div`
@@ -46,10 +50,10 @@ const StyledStar = styled(StarIcon)`
 `;
 
 interface IProps {
-  title: string;
-  url: string;
-  description: string;
-  stars: number;
+  title?: string;
+  url?: string;
+  description?: string;
+  stars?: number;
 }
 
 export const RepositoryBadge: FC<IProps> = ({
@@ -65,7 +69,7 @@ export const RepositoryBadge: FC<IProps> = ({
         <Description>{description}</Description>
       </Text>
       <Stars>
-        {stars}
+        <div data-testid={"stars"}>{stars}</div>
         <StyledStar />
       </Stars>
     </Wrapper>

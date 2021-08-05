@@ -31,6 +31,9 @@ const RepositoryContainer = styled.div`
 const Label = styled.div`
   font-size: 18px;
   margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const IconWrapper = styled.div``;

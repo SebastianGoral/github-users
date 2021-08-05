@@ -23,6 +23,7 @@ export const Input: FC<IProps> = ({ value, onChange }) => {
   };
   return (
     <StyledInput
+      role={"input"}
       value={value}
       onChange={handleChange}
       placeholder={"Enter username"}
