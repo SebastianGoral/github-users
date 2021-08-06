@@ -5,6 +5,9 @@ const Wrapper = styled.div`
   color: #686868;
   font-size: 18px;
   margin: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 interface IProps {
