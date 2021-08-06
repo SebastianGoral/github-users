@@ -12,10 +12,12 @@ interface IUsersResponse {
   items: IUser[];
 }
 
-export const getUsers = (q: string): Promise<IUsersResponse> =>
-  githubApi
+export const getUsers = (q: string): Promise<IUsersResponse> => {
+  //handled github query issue for one char
+  const query = q.length > 1 ? `${q} in:login` : q;
+  return githubApi
     .get("search/users", {
-      searchParams: { q, per_page: 5 },
+      searchParams: { q: query, per_page: 5 },
     })
     .json()
     .then((value) => {
@@ -24,6 +26,7 @@ export const getUsers = (q: string): Promise<IUsersResponse> =>
       }));
       return { items: mappedItems } as IUsersResponse;
     });
+};
 
 interface IRepositoryResponse {
   stargazers_count: number;
